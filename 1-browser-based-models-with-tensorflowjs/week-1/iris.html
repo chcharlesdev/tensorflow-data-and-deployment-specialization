@@ -40,16 +40,10 @@
             });
             
             // Test cases
+            const classNames = ["Setoas", "Virginica", "Versicolor"];
+            
             // Setosa
             let testVal = tf.tensor2d([4.4, 2.9, 1.4, 0.2], [1,4]);
-            
-            // Vesicolor
-            testVal = tf.tensor2d([6.4, 3.2, 4.5, 1.5], [1,4]);
-            
-            // Virginica
-            testVal = tf.tensor2d([5.8, 2.7, 5.1, 1.9], [1,4]);
-            
-            const classNames = ["Setoas", "Virginica", "Versicolor"];
             
             let prediction = model.predict(testVal);
             let pIndex = tf.argMax(prediction, axis=1).dataSync();
@@ -57,11 +51,18 @@
             console.log(prediction);
             console.log(classNames[pIndex]);
             
+            // Vesicolor
+            testVal = tf.tensor2d([6.4, 3.2, 4.5, 1.5], [1,4]);
+            
             prediction = model.predict(testVal);
             pIndex = tf.argMax(prediction, axis=1).dataSync();
             
             console.log(prediction);
             console.log(classNames[pIndex]);
+            
+            
+            // Virginica
+            testVal = tf.tensor2d([5.8, 2.7, 5.1, 1.9], [1,4]);
             
             prediction = model.predict(testVal);
             pIndex = tf.argMax(prediction, axis=1).dataSync();
